@@ -1,6 +1,7 @@
-import { Box, Typography, Grid } from "@mui/material";
+import { Box, Typography, Grid, Button } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
+import { HowItWorksCompo, LicenseCompo } from "../components/pricing.component";
 
 
 
@@ -14,8 +15,12 @@ export const Pricing = ()=>{
         padding: theme.spacing(1),
         textAlign: 'center',
         color: theme.palette.text.secondary,
-        height: 200,
-        width: {xs: '95%', md: '70%', lg: '50%'}
+        height: 180,
+        width: {xs: '95%', md: '70%', lg: '60%'},
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center ',
+        justifyContent: 'center'
       }));
 
 
@@ -28,16 +33,40 @@ export const Pricing = ()=>{
                 Pick the bundle that's perfect for your need:
             </Typography>
 
-            <Box sx={{width: {xs: '70%', md: '50%', lg: '50%', marginTop: 30}}}>
+            <Box sx={{width: {xs: '70%', md: '50%', lg: '60%', marginTop: 30}}}>
                 <Grid container spacing={3}>
                     <Grid item xs={12} md={12} lg={6}>
-                    <Item>xs=8</Item>
+                        <Item>
+                            <Typography variant="h5" color={'black'} fontWeight={'700'}>
+                                Personal Bundle
+                            </Typography>
+                            <Typography style={{marginTop: 10}} variant="button" color={'black'} fontWeight={'500'}>
+                                Get <b style={{textDecoration: 'underline'}}>50 tokens</b> to generate beautiful illustrations for your project
+                            </Typography>
+
+                            <Button variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
+                                Buy for 6$
+                            </Button>
+                        </Item>
                     </Grid>
                     <Grid item xs={12} md={12} lg={6}>
-                    <Item>xs=4</Item>
+                        <Item>
+                            <Typography variant="h5" color={'black'} fontWeight={'700'}>
+                                Growth Bundle
+                            </Typography>
+                            <Typography style={{marginTop: 10}} variant="button" color={'black'} fontWeight={'500'}>
+                                Get <b style={{textDecoration: 'underline'}}>200 tokens</b> to generate beautiful illustrations for your project
+                            </Typography>
+
+                            <Button variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
+                                Buy for 18$
+                            </Button>
+                        </Item>
                     </Grid>
                 </Grid>
             </Box>
+            <HowItWorksCompo />
+            <LicenseCompo />
         </Box>
     )
 }
