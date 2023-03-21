@@ -97,7 +97,7 @@ export const Header = ()=>{
 
 
     return (
-        <Box sx={{height: '92%', width: '100%', backgroundColor: '#F6F6F6', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <Box sx={{height: '91vh', width: '100%', backgroundColor: '#F6F6F6', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
             <Box sx={{width: {xs: '100%', md: '90%', lg: '45%'}, height: '500px', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
                 <Typography  display={'block'} fontWeight={600} textAlign={'center'} color={'black'} variant='h3' component={'div'}>
                     Stunning vector 
