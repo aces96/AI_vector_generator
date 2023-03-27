@@ -1,0 +1,4 @@
+.collectionSideBar{
+    scrollbar-width: thin;
+    scrollbar-color: transparent var(--primary);
+}
