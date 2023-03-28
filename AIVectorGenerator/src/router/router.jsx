@@ -7,6 +7,7 @@ import { Home } from "../pages/home";
 import { LandingPage } from "../pages/landingPage";
 import { Pricing } from "../pages/pricing";
 import { Collection } from "../pages/collection";
+import { Profil } from "../pages/profil";
 
 
 
@@ -27,7 +28,11 @@ export const Router = createBrowserRouter([
             {
                 path: 'collection',
                 element: <Collection />
-            }
+            },
+            {
+                path: 'profil',
+                element: <Profil />
+            },
         ]
     },
     {
