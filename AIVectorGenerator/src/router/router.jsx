@@ -8,6 +8,7 @@ import { LandingPage } from "../pages/landingPage";
 import { Pricing } from "../pages/pricing";
 import { Collection } from "../pages/collection";
 import { Profil } from "../pages/profil";
+import { Login } from "../pages/login";
 
 
 
@@ -36,7 +37,7 @@ export const Router = createBrowserRouter([
         ]
     },
     {
-        path: '/pricing',
-
+        path: '/login',
+        element: <Login />
     }
 ])
