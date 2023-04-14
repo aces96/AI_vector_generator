@@ -21,9 +21,9 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 const navigationLinks = [
     {name: 'home', href: '/'},
-    {name: 'pricing', href: '/pricing'},
-    {name: 'collection', href: `/collection?tokens=${null}`},
-    {name: 'my profil', href: '/profil'},
+    {name: 'pricing', href: 'pricing'},
+    {name: 'collection', href: `collection?tokens=${null}`},
+    {name: 'my profil', href: 'profil'},
 ]
 
 export const NavBar = ()=>{
