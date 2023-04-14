@@ -46,7 +46,7 @@ export const Router = createBrowserRouter([
                 loader:  async ({request})=>{
                     const data = localStorage.getItem('user')
                     const user = JSON.parse(data)
-                    const history = await axios.post('http://137.184.140.243/api/getHistory',{user: user.id})
+                    const history = await axios.post('https://cncvectorlab.com/api/getHistory',{user: user.id})
                     const url = new URL(request.url);
                     const prompt = url.searchParams.get("prompt");
                     console.log("yeeeey", history);

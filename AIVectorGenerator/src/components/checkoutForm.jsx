@@ -39,7 +39,7 @@ export const CheckoutForm = ()=> {
         const dataU = await JSON.parse(user)
         const pack = await localStorage.getItem('bundle')
         const dataP = await JSON.parse(pack)
-        const data = await axios.post('http://137.184.24.251/api/updateUser', {
+        const data = await axios.post('https://cncvectorlab.com/api/updateUser', {
             id: dataU.id,
             tokens: dataP.tokens,
             bundle: dataP.name

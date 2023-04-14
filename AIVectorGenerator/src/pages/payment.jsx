@@ -15,7 +15,7 @@ export const Payment = ()=>{
 
 
         useEffect(() => {
-            fetch("http://137.184.140.243/api/stripeConfig").then(async (r) => {
+            fetch("https://cncvectorlab.com/api/stripeConfig").then(async (r) => {
             const { publishableKey } = await r.json();
             setStripePromise(loadStripe(publishableKey));
             });
@@ -24,7 +24,7 @@ export const Payment = ()=>{
 
         useEffect(() => {
 
-            axios.post("http://137.184.140.243/api/create-payment-intent", {
+            axios.post("https://cncvectorlab.com/api/create-payment-intent", {
                 price: data.price,
                 currency: 'usd',
                 paymentMethodType: 'card',
