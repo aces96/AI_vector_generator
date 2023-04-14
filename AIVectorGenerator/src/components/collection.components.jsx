@@ -84,8 +84,8 @@ export const CollectionSideBar = (props)=>{
                                 await e.images.map((i)=>{
                                     const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
                                     imgsUrls.push(url)
-                                    console.log('imagessss',i);
                                 })
+                                console.log('imagessss',imgsUrls);
                                 dispatch(addImages(imgsUrls))
                             }}>
                                 <Box sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 120}}>
