@@ -23,7 +23,7 @@ export const LandingPage = ()=>{
         let imgsUrls= []
         const user = localStorage.getItem('user')
         const parsedData = JSON.parse(user)
-        const imgs =  axios.post('http://137.184.24.251/api/generateVector', {
+        const imgs =  axios.post('http://137.184.140.243/api/generateVector', {
             user: parsedData.id,
             prompt: prompt
         }).then((res)=>{
