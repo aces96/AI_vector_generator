@@ -15,7 +15,7 @@ export const Payment = ()=>{
 
 
         useEffect(() => {
-            fetch("https://cncvectorlab.com/api/stripeConfig").then(async (r) => {
+            fetch("https://starfish-app-o44bp.ondigitalocean.app/api/stripeConfig").then(async (r) => {
             const { publishableKey } = await r.json();
             setStripePromise(loadStripe(publishableKey));
             });
@@ -24,7 +24,7 @@ export const Payment = ()=>{
 
         useEffect(() => {
 
-            axios.post("https://cncvectorlab.com/api/create-payment-intent", {
+            axios.post("https://starfish-app-o44bp.ondigitalocean.app/api/create-payment-intent", {
                 price: data.price,
                 currency: 'usd',
                 paymentMethodType: 'card',

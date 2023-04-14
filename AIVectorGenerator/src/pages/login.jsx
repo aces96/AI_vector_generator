@@ -28,13 +28,13 @@ export const Login  = ()=>{
                     <span style={{height: 0.5, width: '40%', backgroundColor: 'black'}}></span>
                 </Box>
                 <Box sx={{width: '70%', height: 135, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                    <Button href="https://cncvectorlab.com/auth/google" sx={{width: '100%', backgroundColor: '#DB4437', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
+                    <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/google" sx={{width: '100%', backgroundColor: '#DB4437', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
                         Sign in using google
                     </Button>
-                    <Button href="https://cncvectorlab.com/auth/facebook" sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<FacebookIcon/>}>
+                    <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/facebook" sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<FacebookIcon/>}>
                         Sign in using facebook
                     </Button>
-                    <Button href="https://cncvectorlab.com/auth/linkedin" sx={{width: '100%', backgroundColor: '#0077B5', color: 'white'}} variant="contained" startIcon={<LinkedInIcon/>}>
+                    <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/linkedin" sx={{width: '100%', backgroundColor: '#0077B5', color: 'white'}} variant="contained" startIcon={<LinkedInIcon/>}>
                         SignIn using Linkedin
                     </Button>
                 </Box>

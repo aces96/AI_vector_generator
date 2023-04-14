@@ -23,7 +23,7 @@ export const LandingPage = ()=>{
         let imgsUrls= []
         const user = localStorage.getItem('user')
         const parsedData = JSON.parse(user)
-        const imgs =  axios.post('https://cncvectorlab.com/api/generateVector', {
+        const imgs =  axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/generateVector', {
             user: parsedData.id,
             prompt: prompt
         }).then((res)=>{

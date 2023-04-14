@@ -50,7 +50,7 @@ export const Router = createBrowserRouter([
                         return null
                     }else {
 
-                        const history = await axios.post('https://cncvectorlab.com/api/getHistory',{user: user.id})
+                        const history = await axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/getHistory',{user: user.id})
                         const url = new URL(request.url);
                         const prompt = url.searchParams.get("prompt");
                         console.log("yeeeey", history);
