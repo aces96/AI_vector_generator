@@ -81,11 +81,14 @@ export const CollectionSideBar = (props)=>{
                             <CardContent>
                             <CardActionArea onClick={()=>{
                                 let imgsUrls = [];
-                                e.images.map((i)=>{
-                                    const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
+                                    
+                                for(i=0 ; i<e.images.length;i++){
+                                    const url = URL.createObjectURL(new Blob([e.images[i]], { type: 'image/svg+xml' }))
                                     imgsUrls.push(url)
-                                    console.log('imagessss',imgsUrls);
-                                })
+                                    console.log('imagessss',url);
+
+                                }
+                                
                                 dispatch(addImages(imgsUrls))
                             }}>
                                 <Box sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 120}}>
