@@ -84,7 +84,7 @@ export const CollectionSideBar = (props)=>{
                                 e.images.map((i)=>{
                                     const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
                                     imgsUrls.push(url)
-                                    console.log('imagessss',imgsUrls);
+                                    console.log('imagessss',i);
                                 })
                                 dispatch(addImages(imgsUrls))
                             }}>
