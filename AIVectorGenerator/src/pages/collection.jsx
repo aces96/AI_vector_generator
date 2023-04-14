@@ -65,7 +65,7 @@ export const Collection = ()=>{
                 : logged &&
                 <Box sx={{width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
                     <Box className='sidebar'  sx={{width: {xs: '0%', md: '30%', lg: '20%'}, height: '92vh', display: {xs: 'none', md: 'block', lg: 'block'}}}>
-                        <CollectionSideBar history={data.history} />
+                        <CollectionSideBar history={data !== null ? data.history : []} />
                     </Box>
 
                     <Box className='sidebar'  sx={{width: {xs: '0%', md: '30%', lg: '70%'}, height: '100%', display: {xs: 'block', md: 'none', lg: 'none'}}}>
