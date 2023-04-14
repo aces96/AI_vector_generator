@@ -2,6 +2,7 @@ import { Box, Typography, Grid, Button } from "@mui/material";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { HowItWorksCompo, LicenseCompo } from "../components/pricing.component";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -9,6 +10,8 @@ import { HowItWorksCompo, LicenseCompo } from "../components/pricing.component";
 
 export const Pricing = ()=>{
 
+
+    const navigation = useNavigate()
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -44,7 +47,23 @@ export const Pricing = ()=>{
                                 Get <b style={{textDecoration: 'underline'}}>50 tokens</b> to generate beautiful illustrations for your project
                             </Typography>
 
-                            <Button variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
+                            <Button onClick={()=>{
+                                const user = localStorage.getItem('user')
+                                if(user == null){
+                                    if(confirm("you're not logged in please try to login")){
+                                        navigation('/login')
+                                    }else{
+                                        navigation('/')
+                                    }
+                                }else {
+                                    localStorage.setItem('bundle', JSON.stringify({
+                                        name: "Personal Bundle",
+                                        price: 6,
+                                        tokens: 50
+                                    }))
+                                    navigation('/payment')
+                                }
+                            }} variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
                                 Buy for 6$
                             </Button>
                         </Item>
@@ -58,7 +77,23 @@ export const Pricing = ()=>{
                                 Get <b style={{textDecoration: 'underline'}}>200 tokens</b> to generate beautiful illustrations for your project
                             </Typography>
 
-                            <Button variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
+                            <Button onClick={()=>{
+                                const user = localStorage.getItem('user')
+                                if(user == null){
+                                    if(confirm("you're not logged in please try to login")){
+                                        navigation('/login')
+                                    }else{
+                                        navigation('/')
+                                    }
+                                }else {
+                                    localStorage.setItem('bundle', JSON.stringify({
+                                        name: "Growth Bundle",
+                                        price: 18,
+                                        tokens: 200
+                                    }))
+                                    navigation('/payment')
+                                }
+                            }} variant="contained" style={{width: '80%', backgroundColor: '#5D13E7', color: 'white', marginTop: 10}} size='medium'>
                                 Buy for 18$
                             </Button>
                         </Item>

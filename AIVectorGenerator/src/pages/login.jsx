@@ -28,14 +28,14 @@ export const Login  = ()=>{
                     <span style={{height: 0.5, width: '40%', backgroundColor: 'black'}}></span>
                 </Box>
                 <Box sx={{width: '70%', height: 135, display: 'flex', flexDirection: 'column', justifyContent: 'space-between'}}>
-                    <Button sx={{width: '100%', backgroundColor: '#DB4437', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
-                        SignIn using google
+                    <Button href="http://137.184.24.251/auth/google" sx={{width: '100%', backgroundColor: '#DB4437', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
+                        Sign in using google
                     </Button>
-                    <Button sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
-                        SignIn using google
+                    <Button href="http://137.184.24.251/auth/facebook" sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<FacebookIcon/>}>
+                        Sign in using facebook
                     </Button>
-                    <Button sx={{width: '100%', backgroundColor: '#0077B5', color: 'white'}} variant="contained" startIcon={<LinkedInIcon/>}>
-                        SignIn using google
+                    <Button href="http://137.184.24.251/auth/linkedin" sx={{width: '100%', backgroundColor: '#0077B5', color: 'white'}} variant="contained" startIcon={<LinkedInIcon/>}>
+                        SignIn using Linkedin
                     </Button>
                 </Box>
             </Paper>
