@@ -86,4 +86,4 @@ export const Router = createBrowserRouter([
             return pricing
         }
     },
-])
+], {basename: '/'})
