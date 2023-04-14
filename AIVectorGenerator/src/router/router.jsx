@@ -37,11 +37,11 @@ export const Router = createBrowserRouter([
                 }
             },
             {
-                path: '/pricing',
+                path: 'pricing',
                 element: <Pricing/>
             },
             {
-                path: '/collection',
+                path: 'collection',
                 element: <Collection />,
                 loader:  async ({request})=>{
                     const data = localStorage.getItem('user')
@@ -58,7 +58,7 @@ export const Router = createBrowserRouter([
                 }
             },
             {
-                path: '/profil',
+                path: 'profil',
                 element: <Profil />,
                 loader: ()=>{
                     const data = localStorage.getItem('user')
