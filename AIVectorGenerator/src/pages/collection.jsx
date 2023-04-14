@@ -81,7 +81,7 @@ export const Collection = ()=>{
                     </IconButton>
                     <Drawer sx={{display: {xs: 'block', md: 'none', lg: 'none', xl: 'none'}}}  anchor='left' variant='temporary'  onClose={()=>setOpenDrawer(!openDrawer)} open={openDrawer}>
                         <Box sx={{width: 250, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                            {data.history.map((e)=>{
+                            {data.history > 0 && data.history.map((e)=>{
                                 return (
                                 <Card sx={{width: '80%', height: 150, marginBottom: 3}}>
                                 <CardContent>
