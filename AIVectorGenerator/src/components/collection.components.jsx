@@ -79,14 +79,13 @@ export const CollectionSideBar = (props)=>{
                     return (
                         <Card sx={{width: '80%', height: 150, marginBottom: 3}}>
                             <CardContent>
-                            <CardActionArea onClick={async ()=>{
+                            <CardActionArea onClick={()=>{
                                 let imgsUrls = [];
-                                await e.images.map((i)=>{
-                                    const img = encodeURIComponent(i);
-                                    // const url = URL.createObjectURL(img)
-                                    imgsUrls.push(img)
+                                e.images.map((i)=>{
+                                    const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
+                                    imgsUrls.push(url)
+                                    console.log('imagessss',imgsUrls);
                                 })
-                                console.log('imagessss',imgsUrls);
                                 dispatch(addImages(imgsUrls))
                             }}>
                                 <Box sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 120}}>

@@ -55,7 +55,7 @@ export const Router = createBrowserRouter([
                         const prompt = url.searchParams.get("prompt");
                         console.log("yeeeey", history);
                             return {
-                                data: data
+                                data: user
                                 ,prompt: prompt
                                 ,history: history.data.data 
                             }
