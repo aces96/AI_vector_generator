@@ -11,6 +11,10 @@ dns.setDefaultResultOrder('verbatim')
 export default defineConfig({
   plugins: [react(),
      svgr()],
+     server: {
+      port: 8080,
+    },
+  
     
     
 })
