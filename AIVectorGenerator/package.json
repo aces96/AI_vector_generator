@@ -23,6 +23,7 @@
     "file-saver": "^2.0.5",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.1",
+    "potrace": "^2.1.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-loading-skeleton": "^3.2.0",

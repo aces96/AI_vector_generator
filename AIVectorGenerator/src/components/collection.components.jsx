@@ -82,7 +82,8 @@ export const CollectionSideBar = (props)=>{
                             <CardActionArea onClick={async ()=>{
                                 let imgsUrls = [];
                                 await e.images.map((i)=>{
-                                    const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
+                                    const img = i.blob();
+                                    const url = URL.createObjectURL(img)
                                     imgsUrls.push(url)
                                 })
                                 console.log('imagessss',imgsUrls);
