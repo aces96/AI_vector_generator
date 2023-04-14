@@ -31,6 +31,7 @@ export const Collection = ()=>{
     const navigation = useNavigate()
     const dispatch = useDispatch()
 
+
     const toggleDrawer = ()=>{
 
         setOpenDrawer(!openDrawer)
@@ -38,16 +39,17 @@ export const Collection = ()=>{
 
     useEffect(()=>{
         console.log(prompt);
-        setPrompt(data.prompt)
-        if(data.data == null){
+        if(data == null){
             setLogged(false)
 
-        }else if(data.data !== null && prompt == null){
-            setLogged(true)
-
-
-        }else if(data.data !== null && prompt !== null){
-            setLogged(true)
+        }else if(data!== null){
+            if(prompt == null){
+                setPrompt(data.prompt)
+                setLogged(true)
+            }else if(prompt !== null){
+                setPrompt(data.prompt)
+                setLogged(true)
+            }
         }
     },[])
 
@@ -65,7 +67,7 @@ export const Collection = ()=>{
                 : logged &&
                 <Box sx={{width: '100%', height: '100%', display: 'flex', flexDirection: 'row'}}>
                     <Box className='sidebar'  sx={{width: {xs: '0%', md: '30%', lg: '20%'}, height: '92vh', display: {xs: 'none', md: 'block', lg: 'block'}}}>
-                        <CollectionSideBar history={data !== null ? data.history : []} />
+                        <CollectionSideBar  />
                     </Box>
 
                     <Box className='sidebar'  sx={{width: {xs: '0%', md: '30%', lg: '70%'}, height: '100%', display: {xs: 'block', md: 'none', lg: 'none'}}}>
@@ -81,7 +83,7 @@ export const Collection = ()=>{
                     </IconButton>
                     <Drawer sx={{display: {xs: 'block', md: 'none', lg: 'none', xl: 'none'}}}  anchor='left' variant='temporary'  onClose={()=>setOpenDrawer(!openDrawer)} open={openDrawer}>
                         <Box sx={{width: 250, height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-                            {data.history > 0 && data.history.map((e)=>{
+                            {data !== null && data.history.map((e)=>{
                                 return (
                                 <Card sx={{width: '80%', height: 150, marginBottom: 3}}>
                                 <CardContent>

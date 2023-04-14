@@ -8,6 +8,7 @@ import FileSaver from 'file-saver'
 import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import {useDispatch} from 'react-redux'
 import {addImages} from '../redux/slices/images.slice'
+import { useLoaderData } from "react-router-dom";
 
 
 
@@ -60,6 +61,8 @@ export const SvgDisplayCompo = (props)=>{
 
 export const CollectionSideBar = (props)=>{
 
+    const data = useLoaderData()
+
     const dispatch = useDispatch()
 
 
@@ -71,8 +74,8 @@ export const CollectionSideBar = (props)=>{
                 Request History
             </Typography>
 
-            {props.history.length > 0 ? 
-                props.history.map((e)=>{
+            {data !== null ? 
+                data.history.map((e)=>{
                     return (
                         <Card sx={{width: '80%', height: 150, marginBottom: 3}}>
                             <CardContent>
@@ -97,7 +100,7 @@ export const CollectionSideBar = (props)=>{
                             </CardContent>
                     </Card>
                     )
-                })
+            })
 
             : <Typography variant="overline" textAlign={'center'} color={'black'}>There no generating history</Typography>}
             
