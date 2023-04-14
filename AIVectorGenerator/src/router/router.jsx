@@ -46,15 +46,20 @@ export const Router = createBrowserRouter([
                 loader:  async ({request})=>{
                     const data = localStorage.getItem('user')
                     const user = JSON.parse(data)
-                    const history = await axios.post('https://cncvectorlab.com/api/getHistory',{user: user.id})
-                    const url = new URL(request.url);
-                    const prompt = url.searchParams.get("prompt");
-                    console.log("yeeeey", history);
-                        return {
-                            data: data
-                            ,prompt: prompt
-                            ,history: history.data.data 
-                        }
+                    if(user == null){
+                        return null
+                    }else {
+
+                        const history = await axios.post('https://cncvectorlab.com/api/getHistory',{user: user.id})
+                        const url = new URL(request.url);
+                        const prompt = url.searchParams.get("prompt");
+                        console.log("yeeeey", history);
+                            return {
+                                data: data
+                                ,prompt: prompt
+                                ,history: history.data.data 
+                            }
+                    }
                 }
             },
             {
