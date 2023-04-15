@@ -9,8 +9,6 @@ import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import {useDispatch} from 'react-redux'
 import {addImages} from '../redux/slices/images.slice'
 import { useLoaderData } from "react-router-dom";
-import potrace from "potrace";
-
 
 
 
@@ -84,26 +82,9 @@ export const CollectionSideBar = (props)=>{
                             <CardActionArea onClick={()=>{
                                 let imgsUrls = [];
                                 e.images.map((i)=>{
-                                    const pngBuffer = Buffer.from(i, 'binary')
-                                    // const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
-                                    const svgOptions = {
-                                        turnPolicy: potrace.TURNPOLICY_MINORITY,
-                                        turdSize: 100,
-                                        alphaMax: 1,
-                                        optCurve: true,
-                                        optTolerance: 0.2,
-                                        threshold: 200
-                                      };
-                                      potrace.trace(pngBuffer, svgOptions, (err, svg) => {
-                                        if (err) {
-                                          console.error(err);
-                                        } else {
-                                          // display the SVG image on the frontend
-                                          console.log('imagessss',svg);
-                                        //   res.send(svg);
-                                          imgsUrls.push(svg)
-                                        }
-                                      });
+                                    const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
+                                    imgsUrls.push(url)
+                                    console.log('imagessss',imgsUrls);
                                 })
                                 dispatch(addImages(imgsUrls))
                             }}>
