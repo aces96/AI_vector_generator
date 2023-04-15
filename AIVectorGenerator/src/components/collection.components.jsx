@@ -9,6 +9,8 @@ import ScopedCssBaseline from '@mui/material/ScopedCssBaseline';
 import {useDispatch} from 'react-redux'
 import {addImages} from '../redux/slices/images.slice'
 import { useLoaderData } from "react-router-dom";
+import potrace from "potrace";
+
 
 
 
@@ -81,14 +83,28 @@ export const CollectionSideBar = (props)=>{
                             <CardContent>
                             <CardActionArea onClick={()=>{
                                 let imgsUrls = [];
-                                    
-                                for(let i=0 ; i<e.images.length;i++){
-                                    const url = URL.createObjectURL(new Blob([e.images[i]], { type: 'image/svg+xml' }))
-                                    imgsUrls.push(url)
-                                    console.log('imagessss',url);
-
-                                }
-                                
+                                e.images.map((i)=>{
+                                    const pngBuffer = Buffer.from(i, 'binary')
+                                    // const url = URL.createObjectURL(new Blob([i], { type: 'image/svg+xml' }))
+                                    const svgOptions = {
+                                        turnPolicy: potrace.TURNPOLICY_MINORITY,
+                                        turdSize: 100,
+                                        alphaMax: 1,
+                                        optCurve: true,
+                                        optTolerance: 0.2,
+                                        threshold: 200
+                                      };
+                                      potrace.trace(pngBuffer, svgOptions, (err, svg) => {
+                                        if (err) {
+                                          console.error(err);
+                                        } else {
+                                          // display the SVG image on the frontend
+                                          console.log('imagessss',svg);
+                                        //   res.send(svg);
+                                          imgsUrls.push(svg)
+                                        }
+                                      });
+                                })
                                 dispatch(addImages(imgsUrls))
                             }}>
                                 <Box sx={{width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: 120}}>
