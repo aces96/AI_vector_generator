@@ -23,7 +23,7 @@ const navigationLinks = [
     {name: 'home', href: '/'},
     {name: 'pricing', href: 'pricing'},
     {name: 'collection', href: `collection?tokens=${null}`},
-    {name: 'my profil', href: 'profil'},
+    {name: 'My profile', href: 'profil'},
 ]
 
 export const NavBar = ()=>{
@@ -195,7 +195,7 @@ export const Header = (props)=>{
                 </Typography>
 
                 <Typography display={'block'}  textAlign={'center'} color={'black'} variant='body1' component={'div'}>
-                    create something unique with ours <b>text to SVG</b> AI Tool
+                    create something unique with our <b>text to SVG</b> AI Tool
                 </Typography>
 
                 <TextField onChange={props.handlePrompt} style={{borderRadius: 20}} sx={{fieldset: {borderColor: '#5D13E7'},width: {xs: '95%', md: '95%', lg:'70%', borderColor: '#5D13E7' , marginTop: 10}}} value={props.prompt} size='small' variant='outlined'/>
