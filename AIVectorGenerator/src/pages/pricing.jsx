@@ -30,15 +30,14 @@ export const Pricing = ()=>{
             const checkCode = await axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/checkPromocode',{
                 code: code,
                 name: parsedUser.name
-            })
-            console.log(checkCode.data.done);
-                if(checkCode.data.done){
-                    console.log(checkCode);
+            }).then((res)=>{
+                if(res.status == 200){
+                    console.log(res);
                     localStorage.setItem('user', JSON.stringify({
-                        name: checkCode.data.user.name,
-                        id: checkCode.data.user.id,
-                        tokens: checkCode.data.user.tokens,
-                        image: checkCode.data.user.image,
+                        name: res.data.user.name,
+                        id: res.data.user.id,
+                        tokens: res.data.user.tokens,
+                        image: res.data.user.image,
                     }))
                     toast.success("yeey you will receive your free tokens", {
                         position: toast.POSITION.TOP_CENTER
@@ -46,11 +45,17 @@ export const Pricing = ()=>{
                     setTimeout(()=>{
                         navigation(0)
                     }, 2000)
-                }else if(!checkCode.data.done){
+                }else if(res.status == 400){
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
                     });
                 }
+            }).catch((err)=>{
+                toast.error("some error occured please try again later", {
+                    position: toast.POSITION.TOP_CENTER
+                });
+            })
+                
             setLoading(false)
         }
 
