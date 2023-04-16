@@ -62,6 +62,7 @@ export const SvgDisplayCompo = (props)=>{
 export const CollectionSideBar = (props)=>{
 
     const data = useLoaderData()
+    console.log('heeeeeeeeeeeeeeeeeeey', data);
 
     const dispatch = useDispatch()
 
