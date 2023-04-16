@@ -45,7 +45,7 @@ export const Pricing = ()=>{
                     setTimeout(()=>{
                         navigation(0)
                     }, 2000)
-                }else {
+                }else if(!checkCode.data.done){
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
                     });
