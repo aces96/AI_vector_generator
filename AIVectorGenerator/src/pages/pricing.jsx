@@ -39,7 +39,7 @@ export const Pricing = ()=>{
                         tokens: checkCode.data.user.tokens,
                         image: checkCode.data.user.image,
                     }))
-                    navigation('/')
+                    navigation(0)
                 }else {
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
