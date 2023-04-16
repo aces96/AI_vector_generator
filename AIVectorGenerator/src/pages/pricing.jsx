@@ -39,7 +39,12 @@ export const Pricing = ()=>{
                         tokens: checkCode.data.user.tokens,
                         image: checkCode.data.user.image,
                     }))
-                    navigation(0)
+                    toast.success("yeey you will receive your free tokens", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                    setTimeout(()=>{
+                        navigation(0)
+                    }, 2000)
                 }else {
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
