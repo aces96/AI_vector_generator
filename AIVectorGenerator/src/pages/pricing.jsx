@@ -25,6 +25,7 @@ export const Pricing = ()=>{
         }else {
             const user = localStorage.getItem('user')
             const parsedUser = JSON.parse(user)
+            console.log(parsedUser);
             setLoading(true)
             const checkCode = await axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/checkPromocode',{
                 code: code,
