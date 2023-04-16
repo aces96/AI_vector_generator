@@ -31,9 +31,9 @@ export const Login  = ()=>{
                     <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/google" sx={{width: '100%', backgroundColor: '#DB4437', color: 'white'}} variant="contained" startIcon={<GoogleIcon/>}>
                         Sign in using google
                     </Button>
-                    <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/facebook" sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<FacebookIcon/>}>
+                    {/* <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/facebook" sx={{width: '100%', backgroundColor: '#4267B2', color: 'white'}} variant="contained" startIcon={<FacebookIcon/>}>
                         Sign in using facebook
-                    </Button>
+                    </Button> */}
                     <Button href="https://starfish-app-o44bp.ondigitalocean.app/auth/linkedin" sx={{width: '100%', backgroundColor: '#0077B5', color: 'white'}} variant="contained" startIcon={<LinkedInIcon/>}>
                         SignIn using Linkedin
                     </Button>
