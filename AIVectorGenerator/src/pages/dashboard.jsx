@@ -136,7 +136,10 @@ export const Dashboard = ()=>{
             </Modal>
             <AppBar sx={{width: '100%', backgroundColor: '#FFFFFF', height: 65}} position="static">
                 <Container sx={{display: 'flex', justifyContent: 'end',alignItems: 'center', height: '100%'}} maxWidth='xl'>
-                    <Button endIcon={<LogoutIcon/>} sx={{width: 100, backgroundColor: '#F45050', height: 40, color: 'white'}}>
+                    <Button onClick={()=>{
+                        localStorage.removeItem('admin')
+                        navigation('/')
+                    }} endIcon={<LogoutIcon/>} sx={{width: 100, backgroundColor: '#F45050', height: 40, color: 'white'}}>
                         Log out
                     </Button>
                 </Container>
