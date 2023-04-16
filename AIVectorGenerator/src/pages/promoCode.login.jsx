@@ -21,12 +21,16 @@ export const PromoCodePageLogin = ()=>{
         const log = await axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/getAdmin',{
             username: username,
             password: password
+        }).then((res)=>{
+            console.log(res);
+        }).catch((err)=>{
+            console.log(err);
         })
         setLoading(false)
+        console.log(log)
 
         if(log){
             setLoading(false)
-            console.log(log)
         }else{
             setLoading(false)
             toast.error("something wrong check your information if not try again later", {
