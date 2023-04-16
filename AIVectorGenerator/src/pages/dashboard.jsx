@@ -19,10 +19,13 @@ import ReportGmailerrorredIcon from '@mui/icons-material/ReportGmailerrorred';
 import { addCodes } from "../redux/slices/promocode.slice";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useLoaderData } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
 export const Dashboard = ()=>{
+
     const style = {
         position: 'absolute' ,
         top: '50%',
@@ -44,13 +47,19 @@ export const Dashboard = ()=>{
     const codes = useSelector((state)=>state.promocode.value)
     const dispatch = useDispatch()
     const [codeNum, setCodeNum] = useState('')
+    const user = useLoaderData()
+    const navigation = useNavigate()
 
     const handleClose= ()=>{
         setOpen(false)
     }
 
     useEffect(()=>{
-        getAllCodes()
+        if(user == null){
+            navigation('/')
+        }else{
+            getAllCodes()
+        }
     },[])
 
     const getAllCodes = async ()=>{

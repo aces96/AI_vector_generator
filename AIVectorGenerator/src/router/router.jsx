@@ -99,6 +99,11 @@ export const Router = createBrowserRouter([
     },
     {
         path: '/dashboard_admin',
-        element: <Dashboard />
+        element: <Dashboard />,
+        loader: ()=>{
+            const data = localStorage.getItem('admin')
+            const user = JSON.parse(data)
+            return data
+        }
     }
 ])
