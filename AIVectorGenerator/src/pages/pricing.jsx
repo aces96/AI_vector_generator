@@ -35,16 +35,16 @@ export const Pricing = ()=>{
                     console.log(res);
                     localStorage.setItem('user', JSON.stringify({
                         name: res.data.user.name,
-                        id: res.data.user.id,
+                        id: res.data.user._id,
                         tokens: res.data.user.tokens,
                         image: res.data.user.image,
                     }))
                     toast.success("yeey you will receive your free tokens", {
                         position: toast.POSITION.TOP_CENTER
                     });
-                    // setTimeout(()=>{
-                    //     navigation(0)
-                    // }, 2000)
+                    setTimeout(()=>{
+                        navigation(0)
+                    }, 2000)
                 }else if(res.status == 400){
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
