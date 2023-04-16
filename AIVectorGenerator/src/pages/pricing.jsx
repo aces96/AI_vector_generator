@@ -1,17 +1,54 @@
-import { Box, Typography, Grid, Button } from "@mui/material";
+import { Box, Typography, Grid, Button, TextField, CircularProgress} from "@mui/material";
+import { useState } from "react";
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 import { HowItWorksCompo, LicenseCompo } from "../components/pricing.component";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 
 
 
 
 export const Pricing = ()=>{
-
-
     const navigation = useNavigate()
+    const [code, setCode] = useState("")
+    const [loading, setLoading] = useState(false)
+
+    const checkPromoCode = async ()=>{
+        if(code.length == 0 ){
+            toast.warn("You need to insert a promo code", {
+                position: toast.POSITION.TOP_CENTER
+              });
+        }else {
+            const user = localStorage.getItem('user')
+            const parsedUser = JSON.parse(user)
+            setLoading(true)
+            const checkCode = await axios.post('https://starfish-app-o44bp.ondigitalocean.app/api/checkPromocode',{
+                code: code,
+                name: parsedUser.name
+            })
+                if(checkCode){
+                    localStorage.setItem('user', JSON.stringify({
+                        name: checkCode.data.user.name,
+                        id: checkCode.data.user.id,
+                        tokens: checkCode.data.user.tokens,
+                        image: checkCode.data.user.image,
+                    }))
+                    navigation('/')
+                }else {
+                    toast.error("some error occured please try again later", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
+            setLoading(false)
+        }
+
+    }
+
+
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body2,
@@ -29,6 +66,7 @@ export const Pricing = ()=>{
 
     return (
         <Box sx={{backgroundColor: '#F6F6F6', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <ToastContainer autoClose={2000}/>
             <Typography marginTop={5} textAlign={'center'} lineHeight={1.3} variant="h4" fontWeight={600} color={'black'}>
                 Get the tokens to create stunning illustrations.
             </Typography>
@@ -102,6 +140,24 @@ export const Pricing = ()=>{
             </Box>
             <HowItWorksCompo />
             <LicenseCompo />
+            <Box sx={{width: {xs: '100%', md: '60%', lg: '35%'}, height: 200, display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 5}}>
+                <Typography textAlign={'center'} variant="h4" color={'black'} fontWeight={'700'}>
+                    Free Tokens ?
+                </Typography>
+                <Typography color={'black'} variant="body2">
+                    Insert promo code and get free tokens
+                </Typography>
+
+                <TextField size="small" sx={{width: '100%', marginTop: 2, marginBottom: 2}} placeholder="example-36182397" value={code} onChange={(e)=>{
+                    setCode(e.target.value)
+                }}/>
+
+                <Button onClick={checkPromoCode} variant="contained" sx={{width: '100%', backgroundColor: '#5D13E7'}}>
+                    {loading ?
+                        <CircularProgress  style={{color: 'white'}}size={25}/>
+                    : !loading && "Submit"}
+                </Button>
+            </Box>
         </Box>
     )
 }

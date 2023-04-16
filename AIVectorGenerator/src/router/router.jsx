@@ -12,6 +12,8 @@ import { Login } from "../pages/login";
 import { Success } from "../pages/success";
 import { Payment } from "../pages/payment";
 import axios from "axios";
+import { PromoCodePageLogin } from "../pages/promoCode.login";
+import { Dashboard } from "../pages/dashboard";
 
 
 
@@ -91,4 +93,12 @@ export const Router = createBrowserRouter([
             return pricing
         }
     },
+    {
+        path: '/dash_login',
+        element: <PromoCodePageLogin />
+    },
+    {
+        path: '/dashboard_admin',
+        element: <Dashboard />
+    }
 ])
