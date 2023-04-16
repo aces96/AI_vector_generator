@@ -42,9 +42,9 @@ export const Pricing = ()=>{
                     toast.success("yeey you will receive your free tokens", {
                         position: toast.POSITION.TOP_CENTER
                     });
-                    setTimeout(()=>{
-                        navigation(0)
-                    }, 2000)
+                    // setTimeout(()=>{
+                    //     navigation(0)
+                    // }, 2000)
                 }else if(res.status == 400){
                     toast.error("some error occured please try again later", {
                         position: toast.POSITION.TOP_CENTER
