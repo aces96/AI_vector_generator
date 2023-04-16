@@ -31,6 +31,7 @@ export const Pricing = ()=>{
                 code: code,
                 name: parsedUser.name
             })
+            console.log(checkCode.data.done);
                 if(checkCode.data.done){
                     console.log(checkCode);
                     localStorage.setItem('user', JSON.stringify({
